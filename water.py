@@ -1,4 +1,5 @@
 #Set this up as a cron job, rather than an endless loop
+#Soil sensor on pin 2, solenoid on pin 3
 import pyowm
 import time
 import RPi.GPIO as GPIO
@@ -44,8 +45,11 @@ successfully."""
 
 if check_soil():
     print("Soil is too dry")
-    if not check_weather():
+    if check_weather():
+        print("It is raining soon")
+    else:
         print("No rain in the next day")
-        water_time=5
-        water_plants()    
+        water_plants()
+else:
+    print("Soil is wet enough already")
 GPIO.cleanup()
