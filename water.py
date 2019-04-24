@@ -35,7 +35,7 @@ it will not rain"""
 def water_plants():
     """open the bibcock to water for *some* minutes.  Return True if it completed
 successfully."""
-    print("Watering for "+str(time)+" minutes")
+    print("Watering for 5 minutes")
     GPIO.setup(3,GPIO.OUT)
     GPIO.output(3,GPIO.HIGH)
     time.sleep(300)
